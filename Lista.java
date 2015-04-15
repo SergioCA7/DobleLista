@@ -83,6 +83,7 @@ public class Lista {
 			 nodoAntes.next.ant = nuevoNodo;
 			 nodoAntes.next = nuevoNodo;
 		 }
+//actualizar
 	 }
 	 public void insertarPrincipio(int numero){
 		 Nodo nuevoNodo=new Nodo(numero);
