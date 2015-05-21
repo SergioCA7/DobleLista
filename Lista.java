@@ -102,6 +102,17 @@ public class Lista {
 		 }
 	 }
 	 
+	 public int length(){
+	
+	 int res = 0;
+		 if(primero != null){
+		 while(primero.next != null ){
+			 res++;
+		 }
+		 }
+		 return res;
+	 }
+	 
 	 
 
 }
