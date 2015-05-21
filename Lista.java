@@ -103,7 +103,8 @@ public class Lista {
 	 }
 	 
 	 
-	 public Nodo crearNodo(int numero){ //Para las pruebas
+	 public Nodo crearNodo(int numero){ 
+		 //Para las pruebas
 		 Nodo n = new Nodo(numero);
 		 return n;
 		  
