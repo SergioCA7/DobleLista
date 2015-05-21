@@ -1,6 +1,7 @@
+package pkgLista;
 
 public class Lista {
-	class Nodo
+	public class Nodo
 	{
 	    int dato;
 	    Nodo next;
@@ -11,9 +12,9 @@ public class Lista {
 	        this.ant=null;
 	    }
 	}
-	Nodo primero;
-    Nodo ultimo;
-    Lista(){
+	private Nodo primero;
+    private Nodo ultimo;
+    public Lista(){
         primero=null;
         ultimo=null;
     }
@@ -21,6 +22,13 @@ public class Lista {
 	        if(primero==null) return true;
 	        else return false;
 	    }
+	 
+	 public Nodo getprimero(){
+		 return primero;
+	 }
+	 public Nodo getsultimo(){
+		 return ultimo;
+	 }
 	 public void insertarFinal(int dato){
 	        if(estavacio()){
 	            Nodo nuevoNodo=new Nodo(dato);
@@ -95,4 +103,5 @@ public class Lista {
 	 }
 	 
 	 
+
 }
