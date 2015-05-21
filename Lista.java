@@ -102,15 +102,11 @@ public class Lista {
 		 }
 	 }
 	 
-	 public int length(){
-	
-	 int res = 0;
-		 if(primero != null){
-		 while(primero.next != null ){
-			 res++;
-		 }
-		 }
-		 return res;
+	 
+	 public Nodo crearNodo(int numero){ //Para las pruebas
+		 Nodo n = new Nodo(numero);
+		 return n;
+		  
 	 }
 	 
 	 
