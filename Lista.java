@@ -11,6 +11,12 @@ public class Lista {
 	        this.next=null;
 	        this.ant=null;
 	    }
+	    public Nodo getNext(){
+	    	return next;
+	    }
+	    public Nodo getAnt(){
+	    	return ant;
+	    }
 	}
 	private Nodo primero;
     private Nodo ultimo;
