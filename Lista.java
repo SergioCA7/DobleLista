@@ -35,76 +35,57 @@ public class Lista {
 	 public Nodo getsultimo(){
 		 return ultimo;
 	 }
-	 public void insertarFinal(int dato){
+	 public void insertarFinal(Nodo nuevoNodo){
 	        if(estavacio()){
-	            Nodo nuevoNodo=new Nodo(dato);
 	            primero=nuevoNodo;
 	            ultimo=nuevoNodo;
 	        } else {
-	            Nodo nuevoNodo=new Nodo(dato);
 	            ultimo.next=nuevoNodo;
 	            nuevoNodo.ant=ultimo;
 	            ultimo=nuevoNodo;
 	        }
 	       
 	    }
-	 public boolean borrarDato(int num)
-	    {
-	        Nodo anterior=null;
-	        Nodo actual=primero;
-	        while(actual!=ultimo){
-	            if(actual.dato==num){
-	                if(anterior==null){
-	                    primero=actual.next;
-	                    primero.ant=null;
-	                }else{
-	                    anterior.next=actual.next;
-	                    Nodo temporal;
-	                    temporal=actual.next;
-	                    temporal.ant=anterior;
-	                }
-	                return true;
-	            }
-	            anterior=actual;
-	            actual=actual.next;
-	        }
-	        if(num==ultimo.dato)
-	        {
-	            ultimo=actual.ant;
-	            return true;
-	        }
-	        return false;
-	    }
-	 public void insertarAntes(int numero,Nodo nodoDespues){
-		 Nodo nuevoNodo=new Nodo(numero);
-		 nuevoNodo.ant = nodoDespues.ant;
-		 nuevoNodo.next = nodoDespues;
-		 if(nodoDespues.ant == null){
-			 primero = nuevoNodo;
-		 } else {
-			 nodoDespues.ant.next = nuevoNodo;
-			 nodoDespues.ant = nuevoNodo;
-		 }
+	 public void borrarDato(Nodo nodo){
+		  if (nodo.ant == null) {
+		      primero = nodo.next;
+		    } else if (nodo.next == null) {
+		      ultimo = nodo.ant;
+		    } else {
+		      nodo.ant.next = nodo.next;
+		      nodo.next.ant = nodo.ant;
+		    }
 
-	 }
-	 public void insertarDespues(int numero,Nodo nodoAntes){
-		 Nodo nuevoNodo = new Nodo(numero);
-		 nuevoNodo.ant = nodoAntes;
-		 nuevoNodo.next = nodoAntes.next;
-		 if(nodoAntes.next == null){
-			 ultimo = nuevoNodo;
-		 } else {
-			 nodoAntes.next.ant = nuevoNodo;
-			 nodoAntes.next = nuevoNodo;
-		 }
-	 }
-	 public void insertarPrincipio(int numero){
-		 Nodo nuevoNodo=new Nodo(numero);
+	    }
+	 public void insertarAntes(Nodo nodo, Nodo nuevoNodo) {
+		    nuevoNodo.ant = nodo.ant;
+		    nuevoNodo.next = nodo;
+		    if (nodo.ant == null) {
+		      primero = nuevoNodo;
+		      nodo.ant = nuevoNodo;
+		    } else {
+		      nodo.ant.next = nuevoNodo;
+		      nodo.ant = nuevoNodo;
+		    }
+		  }
+	  public void insertDespues(Nodo nodo, Nodo nuevoNodo) {
+		    nuevoNodo.ant = nodo;
+		    nuevoNodo.next = nodo.next;
+		    if (nodo.next == null) { 
+		      ultimo = nuevoNodo;
+		      nodo.next = nuevoNodo;
+		    } else { 
+		      nodo.next.ant = nuevoNodo;
+		      nodo.next = nuevoNodo;
+		    }
+		  }
+		  
+	 public void insertarPrincipio(Nodo nodo){
 		 if(estavacio()){
-			 primero = nuevoNodo;
-			 ultimo = nuevoNodo;
+			 primero = nodo;
+			 ultimo = nodo;
 		 } else {
-		 insertarAntes(numero,primero);
+		 insertarAntes(nodo,primero);
 		 }
 	 }
 	 
